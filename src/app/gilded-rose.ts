@@ -11,6 +11,10 @@ export class GildedRose {
 
   updateQuality() {
     this.items.forEach((item) => {
+      if (item.name === "Sulfuras, Hand of Ragnaros") {
+        return;
+      }
+
       if (
         item.name != "Aged Brie" &&
         item.name != "Backstage passes to a TAFKAL80ETC concert"
@@ -38,25 +42,26 @@ export class GildedRose {
         }
       }
 
-      if (item.name != "Sulfuras, Hand of Ragnaros") {
-        item.sellIn--;
-      }
+      item.sellIn--;
 
-      if (item.name === "Sulfuras, Hand of Ragnaros") {
+      //_________
+
+      if (item.name === "Aged Brie") {
+        if (item.sellIn < 0) {
+          item.quality++;
+        }
         return;
       }
 
-      if (item.sellIn < 0) {
-        if (item.name === "Aged Brie") {
-          item.quality++;
-          return;
-        }
-
-        if (item.name === "Backstage passes to a TAFKAL80ETC concert") {
+      if (item.name === "Backstage passes to a TAFKAL80ETC concert") {
+        if (item.sellIn < 0) {
           item.quality = 0;
-          return;
         }
+        return;
+      }
 
+      // Item común
+      if (item.sellIn < 0) {
         if (item.quality > 0) {
           item.quality--;
         }
