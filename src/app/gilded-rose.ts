@@ -49,9 +49,9 @@ export class GildedRose {
               }
             }
           }
-          if (item.name === "Backstage passes to a TAFKAL80ETC concert") {
-            item.quality = 0;
-          }
+        }
+        if (item.name === "Backstage passes to a TAFKAL80ETC concert") {
+          item.quality = 0;
         }
         if (item.name === "Aged Brie") {
           item.quality++;
