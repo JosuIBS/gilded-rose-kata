@@ -17,7 +17,7 @@ const items = [
 
 const gildedRose = new GildedRose(items);
 
-let days: number = 10;
+let days: number = 11;
 if (process.argv.length > 2) {
   days = +process.argv[2];
 }
